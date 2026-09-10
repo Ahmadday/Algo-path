@@ -4,7 +4,7 @@ import { bfs } from './algorithms/bfs';
 import { dfs } from './algorithms/dfs';
 import { astar } from './algorithms/astar';
 import { dijkstra, getNodesInShortestPathOrder } from './algorithms/dijkstra';
-import './PathFindingVisualizer.css';
+import './pathFindingVisualizer.css';
 
 const INITIAL_START = { row: 10, col: 15 };
 const INITIAL_FINISH = { row: 10, col: 35 };
