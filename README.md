@@ -1,19 +1,88 @@
-# React + Vite
+# Pathfinding Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive React app for visualizing pathfinding algorithms in action. Draw walls and weighted tiles, drag the start and finish nodes anywhere on the grid, and watch each algorithm explore the board to find a path.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Add your deployment link here.
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Four algorithms: Dijkstra's Algorithm, Breadth-First Search (BFS), Depth-First Search (DFS), and A* Search
+- Interactive grid: click and drag to draw and erase walls
+- Draggable start and finish nodes: reposition them anywhere on the board
+- Weighted terrain: certain cells cost more to move through
+- Random maze generation: instantly fill the board with walls and weights
+- Clear board: reset the grid and cancel any in-progress animation
+- Mobile and touch support: responsive layout for phones and tablets
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## How It Works
 
-## Expanding the ESLint configuration
+1. Pick an algorithm from the controls.
+2. Click and drag on the grid to draw walls and weighted tiles.
+3. Drag the green start node or red finish node to reposition them.
+4. Press the visualize button to watch the algorithm explore the board.
+5. Review the shortest path once the search completes.
+6. Use Clear Board or Generate Random Maze to reset or randomize the layout.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Algorithms Used
+
+- Dijkstra's Algorithm — guarantees the shortest path by exploring nodes in order of their distance from the start.
+- BFS (Breadth-First Search) — guarantees the shortest path on an unweighted grid by exploring layer by layer.
+- DFS (Depth-First Search) — finds a path, but not necessarily the shortest one.
+- A* Search — finds the shortest path efficiently using a Manhattan-distance heuristic to prioritize promising moves.
+
+## Tech Stack
+
+- React
+- Vite
+- Plain CSS
+- No external UI or state-management libraries
+
+## Project Structure
+
+```text
+src/
+├── App.jsx
+├── main.jsx
+├── index.css
+├── App.css
+├── pathFindingVisualizer/
+│   ├── PathFindingVisualizer.jsx
+│   ├── pathFindingVisualizer.css
+│   ├── Node/
+│   │   ├── Node.jsx
+│   │   └── Node.css
+│   └── algorithms/
+│       ├── astar.js
+│       ├── bfs.js
+│       ├── dfs.js
+│       └── dijkstra.js
+└── assets/
+```
+
+## Running Locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the app in a browser, usually at http://localhost:5173.
+
+## Known Limitations
+
+- Random maze generation does not guarantee a solvable path.
+- Resizing the window or rotating a mobile device regenerates the grid and clears custom walls.
+
+## Possible Future Additions
+
+- Recursive-division maze generation
+- Dark mode
+- Adjustable animation speed
+- More algorithms
+- Additional pages for other visualizer types, such as sorting algorithms
+
+## Author
+
+Created by Ahmad Day
