@@ -1,0 +1,123 @@
+:root {
+  --node-size: 22px;
+}
+
+.node {
+  width: var(--node-size);
+  height: var(--node-size);
+  border: 1px solid #d1d5db;
+  background: white;
+  box-sizing: border-box;
+}
+
+.node-wall {
+  background-color: rgb(12, 53, 71);
+}
+
+.node-weight {
+  background-color: #fbbf24;
+}
+
+.node-visited-weight {
+  animation-name: visitedWeightedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes visitedWeightedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(234, 179, 8, 0.8);
+    border-radius: 100%;
+  }
+  50% {
+    background-color: rgba(251, 146, 60, 0.8);
+  }
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(251, 191, 36, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgb(251, 191, 36);
+  }
+}
+
+.node-visited {
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgb(0, 190, 218);
+  }
+}
+
+.node-shortest-path {
+  animation-name: shortestPathAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.node-shortest-path-weight {
+  animation-name: weightedShortestPathAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shortestPathAnimation {
+  0% {
+    transform: scale(0.6);
+    background-color: rgb(255, 254, 106);
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgb(255, 254, 106);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgb(255, 254, 106);
+  }
+}
+
+@keyframes weightedShortestPathAnimation {
+  0% {
+    transform: scale(0.6);
+    background-color: rgb(253, 224, 71);
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgb(250, 204, 21);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgb(251, 191, 36);
+  }
+}
+
+.node-start {
+  background-color: green;
+}
+
+.node-finish {
+  background-color: red;
+}
